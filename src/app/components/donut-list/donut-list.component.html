@@ -1,0 +1,9 @@
+<div>
+    <h1>Donuts</h1>
+  
+    <div>
+      <ul *ngFor="let donut of this.donuts">
+        <a routerLink="/donut-details/{{donut.id}}">{{donut.name}}</a>
+      </ul>
+    </div>
+  </div>

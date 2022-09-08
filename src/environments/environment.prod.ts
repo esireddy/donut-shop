@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  donutsurl: "https://grandcircusco.github.io/demo-apis/donuts.json"
 };
