@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Donut, DonutDetails } from 'src/app/donut';
 import { DonutService } from 'src/app/services/donut.service';
+import { DonutcartService } from 'src/app/services/donutcart.service';
 
 @Component({
   selector: 'app-donut-details',
@@ -12,9 +13,8 @@ export class DonutDetailsComponent implements OnInit {
 
   donutId: number;
   details: DonutDetails;
-  @Output() addToCart = new EventEmitter()
-
-  constructor(private donutService : DonutService, private route: ActivatedRoute) {
+  
+  constructor(private donutService : DonutService, private donutCartService: DonutcartService, private route: ActivatedRoute) {
     this.donutId = 999;
     this.details = <DonutDetails> {};
    }
@@ -25,6 +25,6 @@ export class DonutDetailsComponent implements OnInit {
   }
 
   onAddToCart(): void {
-    this.addToCart.emit(this.details);
+    this.donutCartService.addDonutToCart(this.details);
   }
 }

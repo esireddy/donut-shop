@@ -20,3 +20,12 @@ export interface DonutDetails {
     photo: string,
     photo_attribution: string
 }
+
+export interface DonutCartItem {
+    id: number,
+    name: string,
+    calories: number,
+    price: number,
+    quantity: number
+}
+

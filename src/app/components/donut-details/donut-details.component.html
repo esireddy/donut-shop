@@ -1,5 +1,6 @@
 <div>
-    <h1>Donut</h1>  <button (click)="onAddToCart()" >Add to Cart</button>
+    <a routerLink="/donut-cart">Move To Cart</a>
+    <h1>Donut</h1>  <button (click)="this.onAddToCart()" >Add to Cart</button>
 
     <p>Name: {{details.name}}</p>
     <p>Calories: {{details.calories}}</p>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DonutDetails } from 'src/app/donut';
+import { DonutCartItem, DonutDetails } from 'src/app/donut';
+import { DonutcartService } from 'src/app/services/donutcart.service';
 
 @Component({
   selector: 'app-donut-cart',
@@ -8,13 +9,25 @@ import { DonutDetails } from 'src/app/donut';
 })
 export class DonutCartComponent implements OnInit {
 
-  donutsInCart: DonutDetails[];
-
-  constructor() { 
-    this.donutsInCart = [];
+  constructor(private cartService: DonutcartService) { 
   }
 
   ngOnInit(): void {
   }
 
+  onRemoveItemFromCart(item : DonutCartItem) : void {
+    this.cartService.removeDonutFromCart(item.id);
+  }
+
+  getCartItems(): DonutCartItem[] {
+    return this.cartService.getCartItems();
+  }
+
+  getTotalPriceOfCart(): number {
+    return this.cartService.getTotalPriceOfItemsInCart();
+  }
+
+  getTotalCaloriesOfCart(): number {
+    return this.cartService.getTotalCaloriesOfItemsInCart();
+  }
 }
